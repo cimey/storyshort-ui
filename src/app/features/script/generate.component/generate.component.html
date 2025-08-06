@@ -1,0 +1,23 @@
+<div class="generate-container">
+  <h2 class="title">🎬 Generate Video</h2>
+
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+    <p>Generating video, please wait...</p>
+  </div>
+
+  <div *ngIf="success" class="video-preview">
+    <h3>Video Generation Request Created Successfully!</h3>
+    <h3>You will get an email with the video URL when generation is completed!</h3>
+    <p>Request ID: {{ requestId }}</p>
+
+    <div class="button-container">
+      <button (click)="navigate(['/input'])" class="button btn">➕ Create New Script</button>
+      <button (click)="navigate(['/video-list'])" class="button btn"> 📹 View Video List</button>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="error">
+    ❌ {{ error }}
+  </div>
+</div>

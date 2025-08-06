@@ -1,0 +1,12 @@
+<nav class="top-nav">
+  <div class="nav-container">
+    <div class="nav-left">
+      <a routerLink="/input" routerLinkActive="active-link">➕ Create New Script</a>
+      <a routerLink="/video-list" routerLinkActive="active-link">📹 View Video List</a>
+    </div>
+    <div class="nav-right">
+      <button (click)="logout()" class="logout-btn active-link"> Logout</button>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

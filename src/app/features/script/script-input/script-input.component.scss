@@ -1,0 +1,84 @@
+/* Global reset and box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  max-width: 700px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.input-container {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Input & textarea styles */
+input,
+textarea,
+select,
+option {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus,option:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 5px #3f51b5aa;
+}
+
+/* Button styles */
+button {
+  background-color: #3f51b5;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.1rem;
+  display: block;
+  margin: 1rem auto 0 auto; /* Center the button */
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Error message */
+.error-message {
+  color: #e53935;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}

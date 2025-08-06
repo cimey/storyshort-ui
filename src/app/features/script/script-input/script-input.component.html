@@ -1,0 +1,35 @@
+<div class="input-container">
+  <form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
+    <h2>✍️ Create Your Story</h2>
+<!-- 
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" placeholder="Enter a title for your story" />
+    <div *ngIf="storyForm.get('title')?.invalid && storyForm.get('title')?.touched" class="error-message">
+      Title is required.
+    </div> -->
+    <label for="script">Prompt</label>
+    <textarea
+      id="script"
+      rows="10"
+      formControlName="prompt"
+      placeholder="Type your story here..."
+    ></textarea>
+    <div *ngIf="storyForm.get('prompt')?.invalid && storyForm.get('prompt')?.touched" class="error-message">
+      Prompt is required. Should be at least 10 characters long.
+    </div> 
+
+    <label for="sample prompts"> Sample prompts </label>
+
+    <select id="sample-prompts" 
+            (change)="onSamplePromptChange($event)">
+      <option value="" disabled selected>Select a sample prompt</option>
+      <option *ngFor="let prompt of samplePrompts" [value]="prompt">{{ prompt }}</option>
+    </select>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <button type="submit" [disabled]="loading || storyForm.invalid">
+      {{ loading ? 'Processing...' : 'Continue' }}
+    </button>
+  </form>
+</div>

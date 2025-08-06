@@ -1,0 +1,19 @@
+<div class="video-list-container" *ngIf="videos?.length; else noVideos">
+    <h2>Your Created Videos</h2>
+    <div class="videos-grid">
+        <div class="video-card" *ngFor="let video of videos">
+            <img [src]="video.thumbnail" alt="{{ video.title }} thumbnail" class="thumbnail" />
+            <div class="video-info">
+                <p class="video-date">Created on: {{ video.creationDate | date}}</p>
+                <p class="video-date">Status: {{ video.status }}</p>
+                <p class="video-description">{{ video.prompt }}</p>
+                <button [disabled]="!video.videoUrl" (click)="openVideo( video.videoUrl)" target="_blank"
+                    rel="noopener noreferrer" class="watch-button">Watch</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noVideos>
+    <p>No videos created yet. Start making your first short story video!</p>
+</ng-template>
