@@ -11,10 +11,11 @@ export const routes: Routes = [
     { path: '', redirectTo: '/landing', pathMatch: 'full' },
     { path: 'landing', component: LandingComponent },
     {
-             path: '', component: MainComponent, children: [
+        path: '', component: MainComponent, children: [
             { path: 'input', component: ScriptInputComponent },
             { path: 'preview', component: PreviewComponent },
             { path: 'video-list', component: VideoListComponent },
             { path: 'generate', component: GenerateComponent }], canActivate: [(next, state) => inject(AuthGuard).canActivate(next, state)]
-    }
+    },
+    { path: '**', redirectTo: '/landing' }
 ];

@@ -18,7 +18,7 @@ export const appConfig: ApplicationConfig = {
         domain: 'dev-pu-4qw93.us.auth0.com',
         clientId: 'AVupjakLeQMMLb66JRFwKswkJxhrMtVF',
         authorizationParams: {
-          redirect_uri: window.location.origin,
+          redirect_uri: `${window.location.origin}/input`,
           audience: 'https://short-story.ai',
           scope: "openid profile email"
         },
