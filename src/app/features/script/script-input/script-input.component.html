@@ -1,30 +1,45 @@
 <div class="input-container">
   <form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
     <h2>✍️ Create Your Story</h2>
-<!-- 
+    <!-- 
     <label for="title">Title</label>
     <input id="title" type="text" formControlName="title" placeholder="Enter a title for your story" />
     <div *ngIf="storyForm.get('title')?.invalid && storyForm.get('title')?.touched" class="error-message">
       Title is required.
     </div> -->
     <label for="script">Prompt</label>
-    <textarea
-      id="script"
-      rows="10"
-      formControlName="prompt"
-      placeholder="Type your story here..."
-    ></textarea>
+    <textarea id="script" rows="10" formControlName="prompt" placeholder="Type your story here..."></textarea>
     <div *ngIf="storyForm.get('prompt')?.invalid && storyForm.get('prompt')?.touched" class="error-message">
       Prompt is required. Should be at least 10 characters long.
-    </div> 
+    </div>
 
-    <label for="sample prompts"> Sample prompts </label>
+    <h4>Choose from sample prompts.</h4>
+    <label for="sample prompts"> Genre </label>
 
-    <select id="sample-prompts" 
-            (change)="onSamplePromptChange($event)">
+
+    <select id="genres" (change)="onGenreSelected($event)" formControlName="genre">
+      <option value="" disabled selected>Select a Genre</option>
+      <option *ngFor="let Genre of genres" [value]="Genre">{{ Genre }}</option>
+    </select>
+
+    <!-- <select id="sample-prompts" (change)="onSamplePromptChange($event)" formControlName="prompt">
       <option value="" disabled selected>Select a sample prompt</option>
       <option *ngFor="let prompt of samplePrompts" [value]="prompt">{{ prompt }}</option>
-    </select>
+    </select> -->
+ 
+
+    <div class="carousel-wrapper" #carousel>
+      <button type="button" class="scroll-btn left" (click)="scrollLeft()">‹</button>
+      <div class="carousel-container" #carouselContainer>
+        <div class="carousel-track">
+          <div class="prompt-card" *ngFor="let prompt of samplePrompts" (click)="selectPrompt(prompt)"
+            [class.selected]="prompt === storyForm.get('prompt')?.value">
+            {{ prompt }}
+          </div>
+        </div>
+      </div>
+      <button type="button" class="scroll-btn right" (click)="scrollRight()">›</button>
+    </div>
 
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
