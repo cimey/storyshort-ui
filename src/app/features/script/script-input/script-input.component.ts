@@ -15,7 +15,7 @@ export class ScriptInputComponent implements OnInit, AfterViewInit {
   loading = false;
   errorMessage = '';
   genre = 'Drama';
-  genres = ["Drama", "Sci-Fi / Futuristic", "Inspirational", "Fantasy / Mythical", "Cultural", "Artistic / Abstract", "Advanture"]
+  genres = ["Drama", "Sci-Fi / Futuristic", "Inspirational", "Fantasy / Mythical", "Cultural", "Artistic / Abstract", "Adventure"]
   samplePrompts = [
     `Tell the story of a software engineer who leaves a stable job to start a 
       company focused on solving mental health challenges using AI.`,
