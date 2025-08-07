@@ -8,13 +8,21 @@
 :host {
   display: block;
   max-width: 700px;
-  width: 100%;
+  width: 90%;
   margin: 2rem auto;
   padding: 1.5rem;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+}
+
+/* Responsive padding and width */
+@media (max-width: 480px) {
+  :host {
+    width: 95%;
+    padding: 1rem;
+  }
 }
 
 .input-container {
@@ -34,8 +42,7 @@ h2 {
 /* Input & textarea styles */
 input,
 textarea,
-select,
-option {
+select {
   width: 100%;
   max-width: 100%;
   padding: 0.75rem 1rem;
@@ -46,11 +53,24 @@ option {
   font-family: inherit;
   resize: vertical;
   transition: border-color 0.3s;
+  /* Center text inside select */
+  text-align: center;
+  /* Remove default arrow for styling if needed */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 1rem center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+option {
+  text-align: left; /* Keep options left aligned for readability */
 }
 
 input:focus,
 textarea:focus,
-select:focus,option:focus {
+select:focus {
   outline: none;
   border-color: #3f51b5;
   box-shadow: 0 0 5px #3f51b5aa;
