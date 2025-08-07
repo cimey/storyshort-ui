@@ -13,6 +13,6 @@ export class MainComponent {
   constructor(private authService: AuthService){}
 
   logout(){
-    this.authService.logout();
+    this.authService.logout({ logoutParams: { returnTo: window.location.origin } });
   }
 }

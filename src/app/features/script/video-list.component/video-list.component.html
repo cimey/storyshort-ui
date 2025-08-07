@@ -4,7 +4,7 @@
         <div class="video-card" *ngFor="let video of videos">
             <img [src]="video.thumbnail" alt="{{ video.title }} thumbnail" class="thumbnail" />
             <div class="video-info">
-                <p class="video-date">Created on: {{ video.creationDate | date}}</p>
+                <p class="video-date">Created on: {{ video.creationDate | date: 'dd/MM/yyyy hh:mm'}}</p>
                 <p class="video-date">Status: {{ video.status }}</p>
                 <p class="video-description">{{ video.prompt }}</p>
                 <button [disabled]="!video.videoUrl" (click)="openVideo( video.videoUrl)" target="_blank"
